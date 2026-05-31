@@ -1,0 +1,6 @@
+indicator,type,source,description
+example-bad-domain.com,domain,synthetic,Fake domain used in grooming scam simulation
+185.199.108.153,ip,synthetic,IP from simulated suspicious communication
+fakehash123456789,file_hash,synthetic,Fake hash from simulated illegal content report
+private-chat-now,url_keyword,synthetic,Keyword pattern linked to risky private communication
+unknown-user-platform,platform,synthetic,Simulated platform used for suspicious contact
