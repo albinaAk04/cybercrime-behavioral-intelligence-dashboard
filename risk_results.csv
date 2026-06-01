@@ -1,21 +1,21 @@
-indicator,type,source,description,threat_category,technical_risk_score,risk_level,behavioral_pattern,behavioral_risk,combined_risk
-suspicious-video-share.net,domain,synthetic,Suspicious file sharing platform,Infrastructure,50,Medium,Content Distribution,60,55
-anonymous-chat-zone.org,domain,synthetic,Anonymous communication platform,Infrastructure,50,Medium,Anonymous Interaction,75,62
-encrypted-dropbox.xyz,domain,synthetic,Encrypted content exchange site,Infrastructure,50,Medium,Encrypted Communication,60,55
-fake-support-forum.net,domain,synthetic,Potential social engineering platform,Infrastructure,50,Medium,Social Engineering,70,60
-unknown-media-board.org,domain,synthetic,Unmoderated media board,Infrastructure,50,Medium,Unmoderated Environment,55,52
-185.199.108.153,ip,synthetic,Suspicious communication endpoint,Network,40,Medium,Content Distribution,60,50
-103.44.21.11,ip,synthetic,Untrusted external host,Network,30,Low,General,20,25
-91.220.101.55,ip,synthetic,Potential command server,Network,40,Medium,General,20,30
-45.77.11.23,ip,synthetic,Unknown messaging node,Network,30,Low,General,20,25
-198.51.100.42,ip,synthetic,Suspicious relay server,Network,40,Medium,Content Distribution,60,50
-hash111111111,file_hash,synthetic,Suspicious content fingerprint,Malware Artifact,60,High,Content Distribution,60,60
-hash222222222,file_hash,synthetic,Potential illegal content report,Malware Artifact,60,High,General,20,40
-hash333333333,file_hash,synthetic,Known suspicious artifact,Malware Artifact,60,High,Content Distribution,60,60
-hash444444444,file_hash,synthetic,Unverified content reference,Malware Artifact,50,Medium,General,20,35
-hash555555555,file_hash,synthetic,Flagged evidence hash,Malware Artifact,60,High,General,20,40
-private-chat-now,keyword,synthetic,Private communication keyword,Behavioral Indicator,30,Low,Private Communication,85,58
-secret-share-link,keyword,synthetic,Suspicious sharing keyword,Behavioral Indicator,30,Low,Content Distribution,60,45
-hidden-channel-access,keyword,synthetic,Restricted access keyword,Behavioral Indicator,30,Low,Restricted Access,65,48
-anonymous-upload,keyword,synthetic,Suspicious upload keyword,Behavioral Indicator,30,Low,Content Distribution,60,45
-encrypted-transfer,keyword,synthetic,Encrypted transfer keyword,Behavioral Indicator,30,Low,Encrypted Communication,60,45
+indicator,type,source,description,threat_category,mitre_technique,technical_risk_score,risk_level,behavioral_pattern,behavioral_risk,combined_risk
+suspicious-video-share.net,domain,synthetic,Suspicious file sharing platform,Infrastructure,T1583 - Acquire Infrastructure,50,Medium,Content Distribution,60,55
+anonymous-chat-zone.org,domain,synthetic,Anonymous communication platform,Infrastructure,T1583 - Acquire Infrastructure,50,Medium,Anonymous Interaction,75,62
+encrypted-dropbox.xyz,domain,synthetic,Encrypted content exchange site,Infrastructure,T1583 - Acquire Infrastructure,50,Medium,Encrypted Communication,60,55
+fake-support-forum.net,domain,synthetic,Potential social engineering platform,Infrastructure,T1583 - Acquire Infrastructure,50,Medium,Social Engineering,70,60
+unknown-media-board.org,domain,synthetic,Unmoderated media board,Infrastructure,T1583 - Acquire Infrastructure,50,Medium,Unmoderated Environment,55,52
+185.199.108.153,ip,synthetic,Suspicious communication endpoint,Network,T1071 - Application Layer Protocol,40,Medium,Content Distribution,60,50
+103.44.21.11,ip,synthetic,Untrusted external host,Network,T1071 - Application Layer Protocol,30,Low,General,20,25
+91.220.101.55,ip,synthetic,Potential command server,Network,T1071 - Application Layer Protocol,40,Medium,General,20,30
+45.77.11.23,ip,synthetic,Unknown messaging node,Network,T1071 - Application Layer Protocol,30,Low,General,20,25
+198.51.100.42,ip,synthetic,Suspicious relay server,Network,T1071 - Application Layer Protocol,40,Medium,Content Distribution,60,50
+hash111111111,file_hash,synthetic,Suspicious content fingerprint,Malware Artifact,T1105 - Ingress Tool Transfer,60,High,Content Distribution,60,60
+hash222222222,file_hash,synthetic,Potential illegal content report,Malware Artifact,T1105 - Ingress Tool Transfer,50,Medium,General,20,35
+hash333333333,file_hash,synthetic,Known suspicious artifact,Malware Artifact,T1105 - Ingress Tool Transfer,60,High,Content Distribution,60,60
+hash444444444,file_hash,synthetic,Unverified content reference,Malware Artifact,T1105 - Ingress Tool Transfer,50,Medium,General,20,35
+hash555555555,file_hash,synthetic,Flagged evidence hash,Malware Artifact,T1105 - Ingress Tool Transfer,60,High,General,20,40
+private-chat-now,keyword,synthetic,Private communication keyword,Behavioral Indicator,T1598 - Phishing for Information,30,Low,Private Communication,85,58
+secret-share-link,keyword,synthetic,Suspicious sharing keyword,Behavioral Indicator,T1598 - Phishing for Information,30,Low,Content Distribution,60,45
+hidden-channel-access,keyword,synthetic,Restricted access keyword,Behavioral Indicator,T1598 - Phishing for Information,30,Low,Restricted Access,65,48
+anonymous-upload,keyword,synthetic,Suspicious upload keyword,Behavioral Indicator,T1598 - Phishing for Information,30,Low,Content Distribution,60,45
+encrypted-transfer,keyword,synthetic,Encrypted transfer keyword,Behavioral Indicator,T1598 - Phishing for Information,30,Low,Encrypted Communication,60,45
