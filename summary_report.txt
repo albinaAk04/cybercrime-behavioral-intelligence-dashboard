@@ -1,10 +1,10 @@
 
 Cybercrime Threat Intelligence Summary
 
-Total indicators analyzed: 5
+Total indicators analyzed: 20
 High-risk indicators: 0
-Medium-risk indicators: 4
-Low-risk indicators: 1
+Medium-risk indicators: 6
+Low-risk indicators: 14
 
 Analyst note:
 This project uses synthetic data to demonstrate how cybercrime indicators can be scored, categorized, and prepared for dashboard visualization. No illegal content, dark web content, or real exploitation material is used.

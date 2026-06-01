@@ -1,31 +1,102 @@
 import csv
 
+
 def calculate_risk(indicator_type, description):
     score = 0
+    description_lower = description.lower()
 
     if indicator_type == "file_hash":
-        score += 40
-    elif indicator_type == "domain":
-        score += 30
-    elif indicator_type == "ip":
-        score += 20
-    elif indicator_type == "platform":
-        score += 25
-    elif indicator_type == "url_keyword":
-        score += 35
+        score += 50
+        threat_category = "Malware Artifact"
 
-    risky_words = ["grooming", "private", "illegal", "suspicious", "risky"]
+    elif indicator_type == "domain":
+        score += 40
+        threat_category = "Infrastructure"
+
+    elif indicator_type == "ip":
+        score += 30
+        threat_category = "Network"
+
+    elif indicator_type == "platform":
+        score += 30
+        threat_category = "Platform"
+
+    elif indicator_type == "url_keyword" or indicator_type == "keyword":
+        score += 20
+        threat_category = "Behavioral Indicator"
+
+    else:
+        threat_category = "Unknown"
+
+    risky_words = [
+        "grooming",
+        "private",
+        "illegal",
+        "suspicious",
+        "risky",
+        "restricted",
+        "evidence",
+        "encrypted",
+        "anonymous",
+        "social engineering",
+        "unmoderated",
+        "command"
+    ]
 
     for word in risky_words:
-        if word in description.lower():
+        if word in description_lower:
             score += 10
 
-    if score >= 60:
-        return score, "High"
-    elif score >= 35:
-        return score, "Medium"
+    if score >= 80:
+        risk_level = "Critical"
+    elif score >= 60:
+        risk_level = "High"
+    elif score >= 40:
+        risk_level = "Medium"
     else:
-        return score, "Low"
+        risk_level = "Low"
+
+    behavioral_pattern = "General"
+    behavioral_risk = 20
+
+    if "private" in description_lower:
+        behavioral_pattern = "Private Communication"
+        behavioral_risk = 85
+
+    elif "anonymous" in description_lower:
+        behavioral_pattern = "Anonymous Interaction"
+        behavioral_risk = 75
+
+    elif "social engineering" in description_lower:
+        behavioral_pattern = "Social Engineering"
+        behavioral_risk = 70
+
+    elif "restricted" in description_lower:
+        behavioral_pattern = "Restricted Access"
+        behavioral_risk = 65
+
+    elif "suspicious" in description_lower:
+        behavioral_pattern = "Content Distribution"
+        behavioral_risk = 60
+
+    elif "encrypted" in description_lower:
+        behavioral_pattern = "Encrypted Communication"
+        behavioral_risk = 60
+
+    elif "unmoderated" in description_lower:
+        behavioral_pattern = "Unmoderated Environment"
+        behavioral_risk = 55
+
+    combined_risk = round((score + behavioral_risk) / 2)
+
+    return (
+        score,
+        risk_level,
+        threat_category,
+        behavioral_pattern,
+        behavioral_risk,
+        combined_risk
+    )
 
 
 with open("indicators.csv", "r") as file:
@@ -33,24 +104,46 @@ with open("indicators.csv", "r") as file:
     results = []
 
     for row in reader:
-        score, risk_level = calculate_risk(row["type"], row["description"])
+        (
+            score,
+            risk_level,
+            threat_category,
+            behavioral_pattern,
+            behavioral_risk,
+            combined_risk
+        ) = calculate_risk(row["type"], row["description"])
 
         results.append({
             "indicator": row["indicator"],
             "type": row["type"],
             "source": row["source"],
             "description": row["description"],
-            "risk_score": score,
-            "risk_level": risk_level
+            "threat_category": threat_category,
+            "technical_risk_score": score,
+            "risk_level": risk_level,
+            "behavioral_pattern": behavioral_pattern,
+            "behavioral_risk": behavioral_risk,
+            "combined_risk": combined_risk
         })
 
 
 with open("risk_results.csv", "w", newline="") as file:
-    fieldnames = ["indicator", "type", "source", "description", "risk_score", "risk_level"]
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    fieldnames = [
+        "indicator",
+        "type",
+        "source",
+        "description",
+        "threat_category",
+        "technical_risk_score",
+        "risk_level",
+        "behavioral_pattern",
+        "behavioral_risk",
+        "combined_risk"
+    ]
 
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(results)
 
-print("Analysis complete. Results saved to risk_results.csv")
 
+print("Analysis complete. Results saved to risk_results.csv")

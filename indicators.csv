@@ -1,6 +1,24 @@
 indicator,type,source,description
-example-bad-domain.com,domain,synthetic,Fake domain used in grooming scam simulation
-185.199.108.153,ip,synthetic,IP from simulated suspicious communication
-fakehash123456789,file_hash,synthetic,Fake hash from simulated illegal content report
-private-chat-now,url_keyword,synthetic,Keyword pattern linked to risky private communication
-unknown-user-platform,platform,synthetic,Simulated platform used for suspicious contact
+suspicious-video-share.net,domain,synthetic,Suspicious file sharing platform
+anonymous-chat-zone.org,domain,synthetic,Anonymous communication platform
+encrypted-dropbox.xyz,domain,synthetic,Encrypted content exchange site
+fake-support-forum.net,domain,synthetic,Potential social engineering platform
+unknown-media-board.org,domain,synthetic,Unmoderated media board
+
+185.199.108.153,ip,synthetic,Suspicious communication endpoint
+103.44.21.11,ip,synthetic,Untrusted external host
+91.220.101.55,ip,synthetic,Potential command server
+45.77.11.23,ip,synthetic,Unknown messaging node
+198.51.100.42,ip,synthetic,Suspicious relay server
+
+hash111111111,file_hash,synthetic,Suspicious content fingerprint
+hash222222222,file_hash,synthetic,Potential illegal content report
+hash333333333,file_hash,synthetic,Known suspicious artifact
+hash444444444,file_hash,synthetic,Unverified content reference
+hash555555555,file_hash,synthetic,Flagged evidence hash
+
+private-chat-now,keyword,synthetic,Private communication keyword
+secret-share-link,keyword,synthetic,Suspicious sharing keyword
+hidden-channel-access,keyword,synthetic,Restricted access keyword
+anonymous-upload,keyword,synthetic,Suspicious upload keyword
+encrypted-transfer,keyword,synthetic,Encrypted transfer keyword
